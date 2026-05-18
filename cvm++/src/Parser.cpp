@@ -9,7 +9,6 @@ std::vector<std::unique_ptr<Stmt>> Parser::parse() {
     return stmts;
 }
 
-// ── Helpers ──────────────────────────────────────────────────
 
 Token& Parser::peek()     { return tokens[current]; }
 Token& Parser::previous() { return tokens[current - 1]; }
@@ -37,7 +36,6 @@ Token Parser::consume(TokenType type, const std::string& msg) {
     throw std::runtime_error(msg + " at line " + std::to_string(peek().line));
 }
 
-// ── Statements ───────────────────────────────────────────────
 
 std::unique_ptr<Stmt> Parser::statement() {
     if (match({TokenType::LET}))   return letStatement();
@@ -105,7 +103,6 @@ std::unique_ptr<Stmt> Parser::exprStatement() {
     return std::make_unique<ExprStmt>(std::move(expr));
 }
 
-// ── Expressions (precedence: low → high) ─────────────────────
 
 std::unique_ptr<Expr> Parser::expression() { return assignment(); }
 
