@@ -5,42 +5,32 @@
 #include <fstream>
 #include <stdexcept>
 
-// Binary format per instruction:
-//   1 byte  : opcode
-//   1 byte  : operand type  (0=none, 1=int, 2=bool, 3=string)
-//   N bytes : operand value
-//     int    -> 4 bytes little-endian
-//     bool   -> 1 byte (0 or 1)
-//     string -> 2 bytes length + N bytes chars
 
 class Serializer {
 public:
-    // Write bytecode to a .bytecode file
     static void write(const std::vector<Instruction>& code, const std::string& path) {
         std::ofstream f(path, std::ios::binary);
         if (!f) throw std::runtime_error("Cannot open file for writing: " + path);
 
-        // magic header
         f.write("CVM\0", 4);
 
         for (auto& instr : code) {
-            // opcode
             uint8_t op = (uint8_t)instr.op;
             f.write((char*)&op, 1);
 
-            // figure out operand type from opcode
+            
             switch (instr.op) {
                 case OpCode::PUSH_INT:
                 case OpCode::JUMP:
                 case OpCode::JUMP_IF_FALSE: {
-                    uint8_t type = 1; // int
+                    uint8_t type = 1; 
                     f.write((char*)&type, 1);
                     int32_t v = instr.operand.intVal;
                     f.write((char*)&v, 4);
                     break;
                 }
                 case OpCode::PUSH_BOOL: {
-                    uint8_t type = 2; // bool
+                    uint8_t type = 2; 
                     f.write((char*)&type, 1);
                     uint8_t v = instr.operand.boolVal ? 1 : 0;
                     f.write((char*)&v, 1);
@@ -49,7 +39,7 @@ public:
                 case OpCode::LOAD:
                 case OpCode::STORE:
                 case OpCode::INPUT: {
-                    uint8_t type = 3; // string
+                    uint8_t type = 3; 
                     f.write((char*)&type, 1);
                     uint16_t len = (uint16_t)instr.operand.strVal.size();
                     f.write((char*)&len, 2);
@@ -57,7 +47,7 @@ public:
                     break;
                 }
                 default: {
-                    uint8_t type = 0; // none
+                    uint8_t type = 0; 
                     f.write((char*)&type, 1);
                     break;
                 }
@@ -65,12 +55,10 @@ public:
         }
     }
 
-    // Read bytecode from a .bytecode file
     static std::vector<Instruction> read(const std::string& path) {
         std::ifstream f(path, std::ios::binary);
         if (!f) throw std::runtime_error("Cannot open file: " + path);
 
-        // check magic header
         char magic[4];
         f.read(magic, 4);
         if (magic[0] != 'C' || magic[1] != 'V' || magic[2] != 'M')
