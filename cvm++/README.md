@@ -14,7 +14,6 @@ Understand how compilers work in the background, how the raw text is converted t
 
 ## Project Structure
 
-```
 - `include`-
    ─ Token.h        # Token types and Token struct
    ─ AST.h          # AST node definitions (expressions and statements)
@@ -34,7 +33,7 @@ Understand how compilers work in the background, how the raw text is converted t
     ─ test2.cvm      # If/else and booleans
     ─ test3.cvm      # While loop
     ─ test4.cvm      # User input
-```
+
 
 ---
 
