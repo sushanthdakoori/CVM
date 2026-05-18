@@ -97,14 +97,12 @@ void VM::execute(const std::vector<Instruction>& code) {
     }
 }
 
-// full program run — fresh state every time
 void VM::run(const std::vector<Instruction>& code) {
     stack.clear();
     variables.clear();
     execute(code);
 }
 
-// REPL run — keeps variables alive between lines
 void VM::runLine(const std::vector<Instruction>& code) {
     stack.clear(); // clear stack but keep variables
     execute(code);
