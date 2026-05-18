@@ -16,25 +16,25 @@ Understand how compilers work in the background, how the raw text is converted t
 
 ```
 cvm++/
-├── include/
-│   ├── Token.h        # Token types and Token struct
-│   ├── AST.h          # AST node definitions (expressions and statements)
-│   ├── Lexer.h        # Lexer class declaration
-│   ├── Parser.h       # Parser class declaration
-│   ├── Compiler.h     # Compiler, Instruction, and Operand definitions
-│   ├── Serializer.h   # Bytecode file serializer/deserializer
-│   └── VM.h           # Virtual Machine class declaration
-├── src/
-│   ├── Lexer.cpp      # Tokenizes raw source into Token list
-│   ├── Parser.cpp     # Builds AST using recursive descent parsing
-│   ├── Compiler.cpp   # Walks AST and emits bytecode instructions
-│   ├── VM.cpp         # Executes bytecode on a stack-based machine
-│   └── main.cpp       # CLI entry point (compile / run / REPL)
-└── scripts/
-    ├── test1.cvm      # Arithmetic and variables
-    ├── test2.cvm      # If/else and booleans
-    ├── test3.cvm      # While loop
-    └── test4.cvm      # User input
+- `include`-
+   ─ Token.h        # Token types and Token struct
+   ─ AST.h          # AST node definitions (expressions and statements)
+   ─ Lexer.h        # Lexer class declaration
+   ─ Parser.h       # Parser class declaration
+   ─ Compiler.h     # Compiler, Instruction, and Operand definitions
+   ─ Serializer.h   # Bytecode file serializer/deserializer
+   ─ VM.h           # Virtual Machine class declaration
+- `src`-
+   ─ Lexer.cpp      # Tokenizes raw source into Token list
+   ─ Parser.cpp     # Builds AST using recursive descent parsing
+   ─ Compiler.cpp   # Walks AST and emits bytecode instructions
+   ─ VM.cpp         # Executes bytecode on a stack-based machine
+   ─ main.cpp       # CLI entry point (compile / run / REPL)
+- `scripts`-
+    ─ test1.cvm      # Arithmetic and variables
+    ─ test2.cvm      # If/else and booleans
+    ─ test3.cvm      # While loop
+    ─ test4.cvm      # User input
 ```
 
 ---
