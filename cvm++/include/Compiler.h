@@ -4,7 +4,6 @@
 #include <string>
 #include <unordered_map>
 
-// ── Opcodes ──────────────────────────────────────────────────
 enum class OpCode : uint8_t {
     PUSH_INT,
     PUSH_BOOL,
@@ -20,7 +19,6 @@ enum class OpCode : uint8_t {
     HALT
 };
 
-// ── Operand (no variant) ─────────────────────────────────────
 struct Operand {
     int intVal;
     bool boolVal;
@@ -32,7 +30,6 @@ struct Operand {
     explicit Operand(std::string v) : intVal(0),  boolVal(false), strVal(std::move(v)) {}
 };
 
-// ── Instruction ──────────────────────────────────────────────
 struct Instruction {
     OpCode op;
     Operand operand;
@@ -43,7 +40,6 @@ struct Instruction {
     Instruction(OpCode op, std::string v) : op(op), operand(std::move(v)) {}
 };
 
-// ── Compiler ─────────────────────────────────────────────────
 class Compiler {
 public:
     std::vector<Instruction> compile(const std::vector<std::unique_ptr<Stmt>>& stmts);
