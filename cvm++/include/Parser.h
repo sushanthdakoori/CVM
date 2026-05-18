@@ -13,7 +13,6 @@ private:
     std::vector<Token> tokens;
     int current = 0;
 
-    // Statement parsers
     std::unique_ptr<Stmt> statement();
     std::unique_ptr<Stmt> letStatement();
     std::unique_ptr<Stmt> printStatement();
@@ -23,7 +22,6 @@ private:
     std::unique_ptr<Stmt> block();
     std::unique_ptr<Stmt> exprStatement();
 
-    // Expression parsers (precedence climbing)
     std::unique_ptr<Expr> expression();
     std::unique_ptr<Expr> assignment();
     std::unique_ptr<Expr> equality();
@@ -33,7 +31,6 @@ private:
     std::unique_ptr<Expr> unary();
     std::unique_ptr<Expr> primary();
 
-    // Helpers
     Token& peek();
     Token& previous();
     bool isAtEnd();
