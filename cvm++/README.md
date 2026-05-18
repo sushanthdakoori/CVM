@@ -50,6 +50,7 @@ This will compile the code and provide a cvm.exe compiled file.
 
 ## Usage
 
+## USING A TEXT FILE
 ### Compile a `.cvm` file to bytecode
 ```
 ./cvm compile scripts/test1.cvm
