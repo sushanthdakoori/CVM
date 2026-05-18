@@ -39,23 +39,19 @@ Understand how compilers work in the background, how the raw text is converted t
 
 ## Building
 
-Requirements: **g++ with C++14 support** (GCC 5 or higher)
-
-```bash
-g++ -std=c++14 -Wall -Iinclude src/Lexer.cpp src/Parser.cpp src/Compiler.cpp src/VM.cpp src/main.cpp -o cvm
-```
 
 On Windows:
-```bash
+```
 g++ -std=c++14 -Wall -Iinclude src/Lexer.cpp src/Parser.cpp src/Compiler.cpp src/VM.cpp src/main.cpp -o cvm.exe
 ```
+This will compile the code and provide a cvm.exe compiled file.
 
 ---
 
 ## Usage
 
 ### Compile a `.cvm` file to bytecode
-```bash
+```
 ./cvm compile scripts/test1.cvm
 # outputs: scripts/test1.bytecode
 ```
