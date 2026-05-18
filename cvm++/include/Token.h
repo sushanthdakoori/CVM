@@ -2,21 +2,16 @@
 #include <string>
 
 enum class TokenType {
-    // Literals
     NUMBER, BOOL, IDENTIFIER,
 
-    // Keywords
     LET, PRINT, INPUT, IF, ELSE, WHILE, TRUE, FALSE,
 
-    // Operators
     PLUS, MINUS, STAR, SLASH,
     EQ_EQ, BANG_EQ, LT, GT, LT_EQ, GT_EQ,
     EQ,
 
-    // Delimiters
     LPAREN, RPAREN, LBRACE, RBRACE, SEMICOLON,
 
-    // Special
     END_OF_FILE
 };
 
