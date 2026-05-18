@@ -1,0 +1,8 @@
+// test1.cvm — basic arithmetic and variables
+let x = 10;
+let y = 3;
+let sum = x + y;
+print(sum);           // 13
+print(x * y);         // 30
+print(x / y);         // 3  (integer division)
+print(x - y);         // 7

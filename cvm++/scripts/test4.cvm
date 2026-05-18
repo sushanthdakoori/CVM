@@ -1,0 +1,8 @@
+// test4.cvm — user input and FizzBuzz-style check
+input(n);
+let fizz = (n == 15);
+if (fizz) {
+    print(1);
+} else {
+    print(0);
+}

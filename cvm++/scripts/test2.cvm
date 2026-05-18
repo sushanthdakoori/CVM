@@ -1,0 +1,11 @@
+// test2.cvm — if/else and booleans
+let age = 20;
+
+if (age >= 18) {
+    print(1);   // prints 1 (adult)
+} else {
+    print(0);   // prints 0 (minor)
+}
+
+let isEven = (age == 20);
+print(isEven);  // true
