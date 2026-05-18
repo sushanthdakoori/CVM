@@ -19,7 +19,6 @@ void Compiler::patchJump(int idx, int target) {
     code[idx].operand.intVal = target;
 }
 
-// ── Statements ───────────────────────────────────────────────
 
 void Compiler::compileStmt(const Stmt* stmt) {
     if (auto* s = dynamic_cast<const LetStmt*>(stmt)) {
@@ -68,7 +67,6 @@ void Compiler::compileStmt(const Stmt* stmt) {
     }
 }
 
-// ── Expressions ──────────────────────────────────────────────
 
 void Compiler::compileExpr(const Expr* expr) {
     if (auto* e = dynamic_cast<const NumberExpr*>(expr)) {
@@ -105,7 +103,6 @@ void Compiler::compileExpr(const Expr* expr) {
     }
 }
 
-// ── Disassembler ─────────────────────────────────────────────
 
 void Compiler::disassemble(const std::vector<Instruction>& code) {
     auto opName = [](OpCode op) -> std::string {
