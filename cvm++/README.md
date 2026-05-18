@@ -78,37 +78,76 @@ outputs: scripts/test1.bytecode
 ```
 ./cvm
 ```
-Type the code in the input without using the text files and run.
-Type `debug` inside the REPL to toggle bytecode disassembly. 
+Type the code in the input without using the text files and run.<br>
+Type `debug` inside the REPL to toggle bytecode disassembly. <br>
 Type `exit` to quit.
 
 ---
 
+## The CVM Language
 
-## Supported Operators
+### Variables
+```
+let x = 10;
+let y = x + 5;
+```
 
-| Operator | Description |
-|----------|-------------|
-| `+` `-` `*` `/` | Arithmetic |
-| `==` `!=` | Equality |
-| `<` `>` `<=` `>=` | Comparison |
-| `=` | Assignment |
+### Arithmetic
+```
+let result = (x + y) * 2 / 3 - 1;
+```
+
+### Booleans
+```
+let flag = true;
+let check = (x == 10);
+```
+
+### If / Else
+```
+if (x > 5) {
+    print(x);
+} else {
+    print(0);
+}
+```
+
+### While Loop
+```
+let i = 1;
+while (i <= 10) {
+    print(i);
+    i = i + 1;
+}
+```
+
+### Print
+```
+print(x);
+print(x + y);
+```
+
+### Input
+```
+input(x);   // reads an integer from the user into variable x
+print(x);
+```
 
 ---
+
+
 
 ## How It Works
 
 ### Lexer
-Scans the source string character by character and produces a flat list of `Token` objects. Handles keywords, identifiers, integers, booleans, operators, and comments.
+Scans the source string character by character and produces a list of `Token` objects. Handles keywords, identifiers, integers, booleans, operators, and comments.
 
 ### Parser
 Consumes the token list using **recursive descent parsing** and builds an **Abstract Syntax Tree (AST)**. Operator precedence is handled naturally by the call hierarchy: `assignment → equality → comparison → term → factor → unary → primary`.
 
 ### Compiler
-Walks the AST and emits a flat array of `Instruction` objects (bytecode). Control flow like `if/else` and `while` is handled using `JUMP` and `JUMP_IF_FALSE` opcodes with backpatching.
+Walks the AST and emits an array of `Instruction` objects (bytecode). Control flow like `if/else` and `while` is handled using `JUMP` and `JUMP_IF_FALSE` opcodes with backpatching.
 
-### Serializer
-Writes compiled bytecode to a binary `.bytecode` file and reads it back. Format: 1-byte opcode + 1-byte operand type + operand bytes.
 
 ### Virtual Machine
 Executes bytecode using a **stack-based execution loop**. Operands are pushed onto the stack, instructions pop and push values, and variables are stored in a hash map.
@@ -169,6 +208,3 @@ Disassembly (`--debug`):
 
 ---
 
-## References
-
-- [Crafting Interpreters by Robert Nystrom](https://craftinginterpreters.com) — the primary reference for this project's architecture
