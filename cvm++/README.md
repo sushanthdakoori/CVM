@@ -12,7 +12,7 @@ Understand how compilers work in the background, how the raw text is converted t
 
 ---
 
-## Project Structure
+## PROJECT STRUCTURE
 
 ```
 cvm++/
@@ -35,7 +35,6 @@ cvm++/
     ├── test2.cvm      # If/else and booleans
     ├── test3.cvm      # While loop
     └── test4.cvm      # User input
-```
 
 ---
 
