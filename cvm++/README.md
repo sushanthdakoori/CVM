@@ -50,15 +50,22 @@ This will compile the code and provide a cvm.exe compiled file.
 
 ## Usage
 
-## USING A TEXT FILE
+## 1)USING A TEXT FILE
+Add or use the existing .cvm files which contain the custom language's code.
 ### Compile a `.cvm` file to bytecode
 ```
 ./cvm compile scripts/test1.cvm
-# outputs: scripts/test1.bytecode
 ```
+outputs: scripts/test1.bytecode 
+
+### View bytecode disassembly
+```
+./cvm compile scripts/test1.cvm --debug
+```
+outputs: scripts/test1.bytecode 
 
 ### Run a bytecode file
-```bash
+```
 ./cvm run scripts/test1.bytecode
 ```
 
@@ -67,74 +74,16 @@ This will compile the code and provide a cvm.exe compiled file.
 ./cvm run scripts/test1.cvm
 ```
 
-### View bytecode disassembly
-```bash
-./cvm compile scripts/test1.cvm --debug
+## 2)INTERACTIVE REPL
 ```
-
-### Interactive REPL
-```bash
 ./cvm
 ```
-Type `debug` inside the REPL to toggle bytecode disassembly. Type `exit` to quit.
+Type the code in the input without using the text files and run.
+Type `debug` inside the REPL to toggle bytecode disassembly. 
+Type `exit` to quit.
 
 ---
 
-## The CVM Language
-
-### Variables
-```
-let x = 10;
-let y = x + 5;
-```
-
-### Arithmetic
-```
-let result = (x + y) * 2 / 3 - 1;
-```
-
-### Booleans
-```
-let flag = true;
-let check = (x == 10);
-```
-
-### If / Else
-```
-if (x > 5) {
-    print(x);
-} else {
-    print(0);
-}
-```
-
-### While Loop
-```
-let i = 1;
-while (i <= 10) {
-    print(i);
-    i = i + 1;
-}
-```
-
-### Print
-```
-print(x);
-print(x + y);
-```
-
-### Input
-```
-input(x);   // reads an integer from the user into variable x
-print(x);
-```
-
-### Comments
-```
-// this is a comment
-```
-
----
 
 ## Supported Operators
 
