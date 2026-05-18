@@ -25,7 +25,6 @@ class VM {
 public:
     void run(const std::vector<Instruction>& code);
 
-    // REPL mode: runs new instructions while keeping variable state
     void runLine(const std::vector<Instruction>& code);
 
 private:
