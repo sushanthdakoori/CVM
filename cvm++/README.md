@@ -1,20 +1,14 @@
 # CVM++
-# STACK-BASED VIRTUAL MACHINE & CUSTOM COMPILER
+## STACK-BASED VIRTUAL MACHINE & CUSTOM COMPILER
 
 A custom scripting language built in C++ that compiles down to proprietary bytecode using a custom compiler, executed by a custom stack-based Virtual Machine all
 built from scratch.
 
 ---
 
-## What is this?
+## OBJECTIVE
 
-CVM++ demystifies how programming languages work under the hood by building the entire pipeline from scratch:
-
-```
-Source Code  →  Lexer  →  Tokens  →  Parser  →  AST  →  Compiler  →  Bytecode  →  VM  →  Output
-```
-
-Every stage is implemented manually in C++ — no external language tooling libraries used.
+Understand how compilers work in the background, how the raw text is converted to instructions that the computer can actually execute.
 
 ---
 
