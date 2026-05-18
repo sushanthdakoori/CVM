@@ -15,7 +15,6 @@ Understand how compilers work in the background, how the raw text is converted t
 ## Project Structure
 
 ```
-cvm++/
 - `include`-
    ─ Token.h        # Token types and Token struct
    ─ AST.h          # AST node definitions (expressions and statements)
