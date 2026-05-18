@@ -3,7 +3,6 @@
 #include <string>
 #include <vector>
 
-// Forward declarations
 struct NumberExpr;
 struct BoolExpr;
 struct VarExpr;
@@ -18,7 +17,6 @@ struct WhileStmt;
 struct BlockStmt;
 struct ExprStmt;
 
-// ── Expressions ─────────────────────────────────────────────
 
 struct Expr {
     virtual ~Expr() = default;
@@ -54,7 +52,6 @@ struct AssignExpr : Expr {
         : name(std::move(n)), value(std::move(v)) {}
 };
 
-// ── Statements ───────────────────────────────────────────────
 
 struct Stmt {
     virtual ~Stmt() = default;
