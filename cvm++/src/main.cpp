@@ -8,7 +8,6 @@
 #include <sstream>
 #include <string>
 
-// ── Helpers ──────────────────────────────────────────────────
 
 static std::string replaceExtension(const std::string& path, const std::string& ext) {
     size_t dot = path.rfind('.');
@@ -16,7 +15,6 @@ static std::string replaceExtension(const std::string& path, const std::string& 
     return base + ext;
 }
 
-// ── Compile .cvm → .bytecode ─────────────────────────────────
 
 static void compileFile(const std::string& srcPath, bool debug) {
     std::ifstream file(srcPath);
@@ -44,7 +42,6 @@ static void compileFile(const std::string& srcPath, bool debug) {
     }
 }
 
-// ── Run .bytecode ─────────────────────────────────────────────
 
 static void runFile(const std::string& path, bool debug) {
     try {
@@ -77,7 +74,6 @@ static void runFile(const std::string& path, bool debug) {
     }
 }
 
-// ── REPL ──────────────────────────────────────────────────────
 
 static void runRepl(bool debug) {
     std::cout << "CVM++ REPL  (type 'exit' to quit, 'debug' to toggle)\n";
@@ -104,7 +100,6 @@ static void runRepl(bool debug) {
     }
 }
 
-// ── Usage ─────────────────────────────────────────────────────
 
 static void printUsage() {
     std::cout << "Usage:\n"
@@ -113,7 +108,6 @@ static void printUsage() {
               << "  cvm                                start REPL\n";
 }
 
-// ── Entry point ───────────────────────────────────────────────
 
 int main(int argc, char* argv[]) {
     if (argc == 1) { runRepl(false); return 0; }
